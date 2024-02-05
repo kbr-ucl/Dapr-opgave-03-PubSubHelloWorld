@@ -6,7 +6,7 @@ RabibtMq monitor
 http://localhost:15672/
 
 
-cd C:\Dropbox\SourceCode\dapr\Dapr-opgave-03-PubSubHelloWorld
+cd C:\Dropbox\SourceCode\dapr\Dapr-opgave-03-PubSubHelloWorld\HelloWorld.Publish
 cd ./HelloWorld.Publish
 
 dapr run --app-id helloworldpublish --app-port 5243 --dapr-http-port 3601 --dapr-grpc-port 60001 --resources-path .././myComponents dotnet run
@@ -14,7 +14,7 @@ dapr run --app-id helloworldpublish --app-port 5243 --dapr-http-port 3601 --dapr
 http://localhost:5243/swagger/index.html
 
 
-C:\Dropbox\SourceCode\dapr\Dapr-opgave-03-PubSubHelloWorld
+cd C:\Dropbox\SourceCode\dapr\Dapr-opgave-03-PubSubHelloWorld\HelloWorld.Subscribe
 cd ./HelloWorld.Subscribe
 
 dapr run --app-id helloworldsubscribe --app-port 5181 --dapr-http-port 3602 --dapr-grpc-port 60002 --resources-path .././myComponents dotnet run

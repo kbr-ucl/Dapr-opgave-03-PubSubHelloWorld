@@ -8,5 +8,5 @@ spec:
     default: /SubscribeHello
   pubsubname: pubsub
 scopes:
-  - helloworldpublish
+  # - helloworldpublish # Jeg sender kun på hellotopic, så jeg behøver ikke lytte :-)
   - helloworldsubscribe
