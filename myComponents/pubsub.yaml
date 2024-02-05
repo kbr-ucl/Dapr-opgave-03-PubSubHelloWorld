@@ -19,5 +19,5 @@ spec:
   - name: concurrency
     value: parallel
 scopes:
-  - helloworldpublish
-  - helloworldsubscribe
+- helloworldpublish
+- helloworldsubscribe

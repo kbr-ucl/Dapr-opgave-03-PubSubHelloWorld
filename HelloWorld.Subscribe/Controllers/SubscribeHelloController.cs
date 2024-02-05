@@ -15,12 +15,10 @@ public class SubscribeHelloController : ControllerBase
         _logger = logger;
     }
 
-    //[Topic("pubsub", "hellotopic")]
     [HttpPost]
     public async Task<IActionResult> HelloReceived(HelloMessage hello)
     {
-        //_logger.LogInformation($"Received Hello message: {hello.Message}");
-        Console.WriteLine($"Received Hello message: {hello.Message}");
+        _logger.LogInformation($"Received Hello message: {hello.Message}");
         await Task.CompletedTask;
         return Ok();
     }
