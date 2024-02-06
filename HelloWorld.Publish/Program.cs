@@ -1,5 +1,12 @@
 var builder = WebApplication.CreateBuilder(args);
 
+// If the app is started from Dapr, use the Dapr sidecar's HTTP port.
+var apiHttpPort = Environment.GetEnvironmentVariable("APP_PORT");
+if (!string.IsNullOrEmpty(apiHttpPort))
+{
+    builder.WebHost.UseUrls($"http://localhost:{apiHttpPort.Trim()}");
+}
+
 // Add services to the container.
 builder.Services.AddDaprClient();
 builder.Services.AddControllers();
@@ -22,5 +29,5 @@ app.UseAuthorization();
 app.UseCloudEvents();
 
 app.MapControllers();
-
+app.MapSubscribeHandler();
 app.Run();

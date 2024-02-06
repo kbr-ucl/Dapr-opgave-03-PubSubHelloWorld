@@ -19,6 +19,8 @@ cd ./HelloWorld.Subscribe
 
 dapr run --app-id helloworldsubscribe --app-port 5181 --dapr-http-port 3602 --dapr-grpc-port 60002 --resources-path .././myComponents dotnet run
 
+dapr run --app-id helloworldsubscribe2 --app-port 5182 --dapr-http-port 3603 --dapr-grpc-port 60003 --resources-path .././myComponents dotnet run
+
 
 
 

@@ -18,6 +18,6 @@ spec:
     value: "0"
   - name: concurrency
     value: parallel
-scopes:
-- helloworldpublish
-- helloworldsubscribe
+# scopes:
+# - helloworldpublish
+# - helloworldsubscribe

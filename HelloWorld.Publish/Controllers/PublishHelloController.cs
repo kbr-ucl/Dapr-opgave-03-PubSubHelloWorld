@@ -23,16 +23,17 @@ public class PublishHelloController : ControllerBase
         _logger.LogInformation($"Publishing Hello message {message.Message}");
         try
         {
-            await _daprClient.PublishEventAsync("pubsub", "hellotopic", message).ConfigureAwait(true);
+            await _daprClient.PublishEventAsync("pubsub", "hellotopic", message);
+            _logger.LogInformation($"Publish successful");
+            return Ok(message);
         }
         catch (Exception e)
         {
             _logger.LogError(e, "Error publishing message");
-            Console.WriteLine(e);
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
 
 
-        return Ok(message);
+        
     }
 }
