@@ -25,9 +25,5 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 
-// Use Cloud Events
-app.UseCloudEvents();
-
 app.MapControllers();
-app.MapSubscribeHandler();
 app.Run();

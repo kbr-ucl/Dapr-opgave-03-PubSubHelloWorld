@@ -8,9 +8,7 @@ if (!string.IsNullOrEmpty(apiHttpPort))
 }
 
 // Add services to the container.
-builder.Services.AddDaprClient();
-
-builder.Services.AddControllers();//.AddDapr(); //You can use builder.Services.AddControllers().AddDapr() or builder.Services.AddDaprClient() as your please.
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -26,11 +24,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 
-// Use Cloud Events
-app.UseCloudEvents();
 
 app.MapControllers();
 
-// app.MapSubscribeHandler(); # This line is not needed in "Declarative" PubSub.
 
 app.Run();

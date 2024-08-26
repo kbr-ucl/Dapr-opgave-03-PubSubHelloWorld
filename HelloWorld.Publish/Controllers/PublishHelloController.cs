@@ -1,6 +1,8 @@
 ﻿using Dapr.Client;
 using Hello.Crosscut.IntegrationMessages;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Principal;
+using System.Threading;
 
 namespace HelloWorld.Publish.Controllers;
 
@@ -18,12 +20,16 @@ public class PublishHelloController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> PublishHello([FromBody] HelloMessage message)
+    public async Task<IActionResult> PublishHello([FromBody] HelloMessage message, CancellationToken cancellationToken)
     {
         _logger.LogInformation($"Publishing Hello message {message.Message}");
         try
         {
-            await _daprClient.PublishEventAsync("pubsub", "hellotopic", message);
+            // https://docs.dapr.io/developing-applications/sdks/dotnet/dotnet-client/
+            await _daprClient.InvokeMethodAsync("helloworldsubscribe", "SubscribeHello",
+                message, cancellationToken);
+            await _daprClient.InvokeMethodAsync("helloworldsubscribe2", "SubscribeHello",
+                message, cancellationToken);
             _logger.LogInformation($"Publish successful");
             return Ok(message);
         }
