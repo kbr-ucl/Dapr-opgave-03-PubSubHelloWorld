@@ -1,5 +1,4 @@
-﻿using Dapr;
-using Hello.Crosscut.IntegrationMessages;
+﻿using Hello.Crosscut.IntegrationMessages;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HelloWorld.Subscribe.Controllers;
