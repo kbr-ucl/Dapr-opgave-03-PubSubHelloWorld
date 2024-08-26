@@ -15,6 +15,7 @@ public class SubscribeHelloController : ControllerBase
         _logger = logger;
     }
 
+    [Topic("pubsub", "hellotopic")]
     [HttpPost]
     public async Task<IActionResult> HelloReceived(HelloMessage hello)
     {

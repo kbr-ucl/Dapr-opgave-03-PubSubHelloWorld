@@ -31,6 +31,6 @@ app.UseCloudEvents();
 
 app.MapControllers();
 
-// app.MapSubscribeHandler(); # This line is not needed in "Declarative" PubSub.
+app.MapSubscribeHandler(); // This line is not needed in "Declarative" PubSub.
 
 app.Run();
