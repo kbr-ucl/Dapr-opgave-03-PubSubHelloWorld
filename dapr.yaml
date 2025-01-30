@@ -5,8 +5,15 @@ apps:
   - appID: helloworldpublish
     appDirPath: ./HelloWorld.Publish/
     appPort: 5243
+    daprHTTPPort: 3601
     command: ["dotnet", "run"]
   - appID: helloworldsubscribe
     appDirPath: ./HelloWorld.Subscribe/
     appPort: 5181
+    daprHTTPPort: 3602
+    command: ["dotnet", "run"]
+  - appID: helloworldsubscribe2
+    appDirPath: ./HelloWorld.Subscribe/
+    appPort: 5182
+    daprHTTPPort: 3603
     command: ["dotnet", "run"]
